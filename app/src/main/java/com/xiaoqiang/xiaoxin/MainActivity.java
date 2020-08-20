@@ -21,6 +21,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new DialogSubmit(this, "要进入游戏模式吗？", new DialogSubmit.Callback() {
+            @Override
+            public void onClickOk() {
+                doClickGame(null);
+            }
+
+            @Override
+            public void onOver() {
+
+            }
+        }).show();
     }
 
     @Override
@@ -36,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
             }
             execute = null;
         }
+    }
+
+    public void doClickGame(View view) {
+        startActivity(new Intent(this, GameActivity.class));
     }
 
     /**
@@ -132,9 +147,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }).show();
 
-    }
-
-    public void doClickGame(View view) {
-        startActivity(new Intent(this, GameActivity.class));
     }
 }

@@ -289,6 +289,8 @@ public class ArcheryView extends View implements IArcheryView {
             canvas.drawBitmap(bitmap, rectF, dstTop, null);
         }
     }
+    public void reversionBitmap(){
+    }
 
     /**
      * 画弓
