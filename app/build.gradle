@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        imoney {
+            storeFile file('D:\\imoney\\签名\\imoney.keystore')
+            storePassword 'imoney'
+            keyAlias 'imoney'
+            keyPassword 'imoney'
+        }
+    }
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.xiaoqiang.xiaoxin"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.imoney
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.imoney
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+}
